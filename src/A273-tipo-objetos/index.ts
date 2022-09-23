@@ -1,5 +1,5 @@
 const objetoA: {
-  readonly chaveA: string; // nao altera o valor
+  readonly chaveA: string; //       readonly >>nao altera o valor
   chaveB: string;
   chaveC?: string;
   [key: string]: unknown;
