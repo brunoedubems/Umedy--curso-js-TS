@@ -33,7 +33,7 @@ enum Cores2 {
 }
 console.log(Cores2);
 
-function escolhaACor(cor: Cores): void {
+export function escolhaACor(cor: Cores): void {
   console.log(Cores2[cor]);
 }
 
