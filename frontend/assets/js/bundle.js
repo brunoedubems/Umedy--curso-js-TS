@@ -611,15 +611,17 @@ const username = document.querySelector('.username');
 const email = document.querySelector('.email');
 const password = document.querySelector('.password');
 const password2 = document.querySelector('.password2');
-form.addEventListener('submit', function (event) {
+const submitEventFn = (event) => {
     event.preventDefault();
-    hideErrorMenssages(this);
+    const target = event.target;
+    hideErrorMenssages(target);
     checkForEmptyFields(username, email, password, password2);
     checkEmail(email);
     checkEqualPasswords(password, password2);
-    if (shouldSendFrom(this))
+    if (shouldSendFrom(target))
         console.log('Formulário enviado amor :)');
-});
+};
+form.addEventListener('submit', submitEventFn);
 function checkForEmptyFields(...inputs) {
     inputs.forEach((input) => {
         if (!input.value)
