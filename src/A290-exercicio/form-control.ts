@@ -1,3 +1,4 @@
+import isEmail from 'validator/lib/isEmail';
 const SHOW_ERROR_MESSAGES = 'show-error-message';
 
 const form = document.querySelector('.form') as HTMLFormElement;
@@ -9,13 +10,30 @@ const password2 = document.querySelector('.password2') as HTMLInputElement;
 form.addEventListener('submit', function (event: Event) {
   event.preventDefault();
   hideErrorMenssages(this);
-  checkFprEmptyFields(username, email, password, password2);
+  checkForEmptyFields(username, email, password, password2);
+  checkEmail(email);
+  checkEqualPasswords(password, password2);
+  if (shouldSendFrom(this)) console.log('Formulário enviado amor :)');
 });
 
-function checkFprEmptyFields(...inputs: HTMLFormElement[]): void {
+function checkForEmptyFields(...inputs: HTMLInputElement[]): void {
   inputs.forEach((input) => {
     if (!input.value) showErrorMessage(input, 'Campo não pode ficar vazio');
   });
+}
+
+function checkEmail(input: HTMLInputElement): void {
+  if (!isEmail(input.value)) showErrorMessage(input, 'Email inválido');
+}
+
+function checkEqualPasswords(
+  password: HTMLInputElement,
+  password2: HTMLInputElement,
+) {
+  if (password.value !== password2.value) {
+    showErrorMessage(password, 'Senha não são iguais');
+    showErrorMessage(password2, 'Senha não são iguais');
+  }
 }
 
 function hideErrorMenssages(form: HTMLFormElement): void {
@@ -31,4 +49,12 @@ function showErrorMessage(input: HTMLInputElement, msg: string): void {
   ) as HTMLSpanElement;
   errorMessage.innerText = msg;
   formFields.classList.add(SHOW_ERROR_MESSAGES);
+}
+
+function shouldSendFrom(form: HTMLFormElement): boolean {
+  let send = true;
+  form
+    .querySelectorAll('.' + SHOW_ERROR_MESSAGES)
+    .forEach(() => (send = false));
+  return send;
 }
