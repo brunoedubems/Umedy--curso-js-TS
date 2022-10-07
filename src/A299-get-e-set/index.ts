@@ -6,7 +6,9 @@ export class Pessoa {
     private sobrenome: string,
     private idade: number,
     private _cpf: string,
-  ) {}
+  ) {
+    this.cpf = _cpf;
+  }
 
   /*JEITO ANTIGO DE FAZER*/
   /*setCpf(valor: string): void {
@@ -28,6 +30,7 @@ export class Pessoa {
   }*/
 
   get Cpf(): string {
+    Console.log('get chamado');
     return this._cpf.replace(/\D/g, '');
   }
 }
