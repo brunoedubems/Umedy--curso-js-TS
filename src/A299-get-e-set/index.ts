@@ -7,7 +7,7 @@ export class Pessoa {
     private idade: number,
     private _cpf: string,
   ) {
-    this.cpf = _cpf;
+    this.Cpf = _cpf;
   }
 
   /*JEITO ANTIGO DE FAZER*/
@@ -21,7 +21,7 @@ export class Pessoa {
 
   //MODO NOVO DE FAZER
   set Cpf(valor: string) {
-    Console.log('setter chamado');
+    console.log('setter chamado');
     this._cpf = valor;
   }
 
@@ -30,7 +30,7 @@ export class Pessoa {
   }*/
 
   get Cpf(): string {
-    Console.log('get chamado');
+    console.log('get chamado');
     return this._cpf.replace(/\D/g, '');
   }
 }
