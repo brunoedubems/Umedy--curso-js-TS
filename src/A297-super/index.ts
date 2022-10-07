@@ -8,7 +8,7 @@ export class Pessoa {
   getIdade(): number {
     return this.idade;
   }
-  getCpf() {
+  getCpf(): string {
     return this.cpf;
   }
   getNomeCompleto(): string {
