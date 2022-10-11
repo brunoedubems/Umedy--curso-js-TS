@@ -1,4 +1,4 @@
-import isEmail from 'validator/lib/isEmail';
+/*import isEmail from 'validator/lib/isEmail';
 const SHOW_ERROR_MESSAGES = 'show-error-message';
 
 const form = document.querySelector('.form') as HTMLFormElement;
@@ -61,3 +61,4 @@ function shouldSendFrom(form: HTMLFormElement): boolean {
     .forEach(() => (send = false));
   return send;
 }
+*/
