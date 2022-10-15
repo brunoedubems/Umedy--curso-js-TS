@@ -3,10 +3,15 @@ export class Equipamento {
   protected _sobrenome: string;
   protected _endereco: string;
 
+  static sobrenome = 'de Porteirinha';
+
   constructor(nome: string, sobrenome: string, endereco: string) {
     (this._nome = nome),
       (this._sobrenome = sobrenome),
       (this._endereco = endereco);
+  }
+  static criaEquipamentoComSomenteNome(nome: string): Equipamento {
+    return new Equipamento(nome, Equipamento.sobrenome, 'Rua BELO HORIZONTE');
   }
 
   get nome(): string {
@@ -52,10 +57,14 @@ const cras = new Cras(
   'Material',
 );
 
+const creas = Equipamento.criaEquipamentoComSomenteNome('creas');
+
 // console.log(cras);
 // console.log(cras.getNome());
-console.log(cras.nomeCompleto);
+// console.log(cras.nomeCompleto);
 
-cras.nome = 'bruno';
-console.log(cras.nomeCompleto);
-console.log(cras.nome);
+// cras.nome = 'bruno';
+// console.log(cras.nomeCompleto);
+// console.log(cras.nome);
+
+console.log(creas);
