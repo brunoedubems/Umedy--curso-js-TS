@@ -1,4 +1,4 @@
-export class Equipamento {
+export abstract class Equipamento {
   protected _nome: string;
   protected _sobrenome: string;
   protected _endereco: string;
@@ -10,9 +10,9 @@ export class Equipamento {
       (this._sobrenome = sobrenome),
       (this._endereco = endereco);
   }
-  static criaEquipamentoComSomenteNome(nome: string): Equipamento {
-    return new Equipamento(nome, Equipamento.sobrenome, 'Rua BELO HORIZONTE');
-  }
+  // static criaEquipamentoComSomenteNome(nome: string): Equipamento {
+  //   return new Equipamento(nome, Equipamento.sobrenome, 'Rua BELO HORIZONTE');
+  // }
 
   get nome(): string {
     return this._nome;
@@ -57,7 +57,7 @@ const cras = new Cras(
   'Material',
 );
 
-const creas = Equipamento.criaEquipamentoComSomenteNome('creas');
+// const creas = Equipamento.criaEquipamentoComSomenteNome('creas');
 
 // console.log(cras);
 // console.log(cras.getNome());
@@ -67,4 +67,4 @@ const creas = Equipamento.criaEquipamentoComSomenteNome('creas');
 // console.log(cras.nomeCompleto);
 // console.log(cras.nome);
 
-console.log(creas);
+console.log(cras);
