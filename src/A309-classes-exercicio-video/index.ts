@@ -1,10 +1,12 @@
 interface VideoPlayElements {
+  //elementos do player
   videoPlayer: HTMLVideoElement;
   playButton: HTMLButtonElement;
   stopButton: HTMLButtonElement;
 }
 
 interface VideoPlayProtocol {
+  // ações do player
   playToggle(): void;
   stop(): void;
   inicarEventos(): void;
