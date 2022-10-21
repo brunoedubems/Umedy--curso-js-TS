@@ -5,7 +5,7 @@ type Documento = {
   data?: Date;
 };
 
-const documento: Documento = {
+export const documento: Documento = {
   titulo: 'O titulo',
   texto: 'O texto',
   //data: new Date(),
