@@ -31,9 +31,11 @@ export class VotationApp {
   showVotations(): void {
     for (const votation of this.votations) {
       console.log(votation.details);
+
       for (const votationOption of votation.votationOptions) {
         console.log(votationOption.option, votationOption.numberOfvotes);
       }
+      console.log(' ');
     }
   }
 }
